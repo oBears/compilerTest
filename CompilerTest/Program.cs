@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace CompilerTest
 {
@@ -6,7 +7,12 @@ namespace CompilerTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            var reader = new FileInfo("test.txt").OpenText();
+            var lex = new Lexer(reader);
+            lex.Run();
+
+           
         }
     }
 }
